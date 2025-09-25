@@ -1,1 +1,1079 @@
 
+/* this part it related to the first header page only */
+/* Reset / base */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Gill Sans", sans-serif;
+    line-height: 1.4;
+    /* leave room for fixed header so content doesn't hide behind it */
+    padding-top: 84px; /* match header height (change if you change header height) */
+}
+
+/* Header layout: brand (left) - nav center - contact right */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 84px;               /* header height - adjust if you want */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;         /* put items at top of header */
+    gap: 12px;
+    padding: 14px 28px;         /* space around contents */
+    background: rgba(255,255,255,0.95); /* subtle background; tweak or use solid color */
+    z-index: 9999;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    backdrop-filter: blur(6px); /* subtle blur on supported browsers */
+}
+
+/* Brand on the top-left */
+.brand {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 0.9;
+    font-size: clamp(12px, 2.4vw, 24px);
+    color: #0b0b0b;
+    align-self: start; /* ensure top */
+}
+
+/* Center nav container - we will center the UL inside this grid column */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: start; /* top aligned */
+}
+
+/* The nav-list is centered within the middle column */
+.nav-list {
+    font-family: "Gill Sans", sans-serif;;
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    /* keep ul visually at top of header */
+    margin-top: 2px;
+}
+
+/* Anchor base styles (converted from your SCSS) */
+.nav-list a,
+.contact {
+    font-family: "Gill Sans", sans-serif;;
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+    z-index: 1;
+    overflow: hidden;
+    letter-spacing: 0.6px;
+}
+
+/* Decorative pseudo elements for hover effect */
+.nav-list a::before,
+.nav-list a::after,
+.contact::before,
+.contact::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* thin borders (top & bottom) element */
+.nav-list a::before,
+.contact::before {
+    top: 0;
+    border-top: 2px solid #262626;
+    border-bottom: 2px solid #262626;
+    transform-origin: center;
+    transform: scaleY(2);
+    opacity: 0;
+}
+
+/* dark fill that scales in behind text */
+.nav-list a::after,
+.contact::after {
+    top: 2px;
+    background-color: #262626;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+    z-index: -1;
+}
+
+/* Hover/focus state */
+.nav-list a:hover,
+.nav-list a:focus,
+.contact:hover,
+.contact:focus {
+    color: #ffffff;
+}
+
+.nav-list a:hover::before,
+.nav-list a:focus::before,
+.contact:hover::before,
+.contact:focus::before {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus::after,
+.contact:hover::after,
+.contact:focus::after {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+/* Contact (top-right) */
+.contact {
+    align-self: start; /* put it at the top */
+    justify-self: end;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: "Gill Sans", sans-serif;;
+}
+
+/* Small tweaks for accessibility keyboard focus */
+.nav-list a:focus,
+.contact:focus {
+    outline: 3px solid rgba(38,38,38,0.12);
+    outline-offset: 4px;
+}
+
+/* Responsive behavior for narrow screens */
+@media (max-width: 880px) {
+    .site-header {
+        height: 78px;
+        padding: 12px 18px;
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .nav-list {
+        gap: 12px;
+    }
+
+    .nav-list a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .contact {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+
+/* If the screen becomes very narrow, allow the nav to wrap underneath while keeping brand left and contact right */
+@media (max-width: 540px) {
+    .site-header {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 10px 14px;
+        row-gap: 8px;
+        align-items: center;
+    }
+
+    .brand {
+        grid-column: 1 / -1;
+        text-align: left;
+    }
+
+    .nav {
+        grid-column: 1 / -1;
+        justify-content: center;
+        margin-top: 2px;
+    }
+
+    .contact {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+
+    /* stack the nav items if needed */
+    .nav-list {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+/* introductry page */
+/* styles.css (updated to remove rectangles and match reference) */
+:root{
+    --center-width:520px;
+}
+
+html,body{height:100%;}
+body{
+    margin:0;
+    font-family: "Gill Sans", sans-serif;
+    background:#fff;
+    color:#0b0b0b;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* HERO LAYOUT: 3-column grid (center column fixed width) */
+.hero{
+    min-height:80vh;
+    display:grid;
+    grid-template-columns: 1fr var(--center-width) 1fr;
+    align-items:center;
+    position:relative;
+    padding:3rem 2rem;
+    overflow:visible;
+}
+
+/* Big title behind the imagees - moved down & less bold */
+.big-title{
+    grid-column:1 / -1;
+    justify-self:center;
+    font-weight:700; /* less bold */
+    text-transform:uppercase;
+    letter-spacing:-3px;
+    line-height:0.85;
+    font-size:clamp(40px, 6.5vw, 80px); /* smaller so it stays inside viewport */
+    color:rgba(0,0,0,1); /* solid black */
+    position:relative;
+    z-index:1; /* behind the picture */
+    margin:0;
+    pointer-events:none;
+    white-space:nowrap;
+    max-width:calc(100% - 160px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    transform:translateY(10%); /* moved down a bit */
+}
+
+/* Center column that contains the image */
+.photo-wrap{
+    grid-column:2;
+    justify-self:center;
+    width:var(--center-width);
+    height:auto;
+    position:relative;
+    display:block;
+    z-index:3; /* above big-title */
+    margin:auto;
+}
+
+/* Make the image have white background and no borders/shadows */
+.photo-wrap img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:0; /* no rounded corners */
+    position:relative;
+    z-index:3;
+    box-shadow:none; /* remove shadow */
+    border:0; /* no border */
+    background:#ffffff; /* ensure white background if image has transparency */
+}
+
+/* Remove any decorative rectangles: no ::before on photo-wrap and no boxed skills */
+.photo-wrap::before{display:none}
+
+.skills {
+    position: absolute;
+    z-index: 4;
+    top: calc(50% + 3rem);   /* adjust distance below SOFTWARE ENGINEER */
+    left: 16.5%;
+    transform: translate(0, 0); /* no shift needed */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+    max-width: 240px;
+    padding: 0;
+    background: transparent;
+
+}
+
+
+.skills ul{margin:0;padding:0;list-style:none}
+.skills li{position:relative;padding-left:1.2rem;white-space:nowrap;margin-bottom:0.35rem;font-weight:700}
+.skills li::before{content:'/';position:absolute;left:0;top:0;transform:translateY(-2px);font-weight:900}
+
+.based {
+    position: absolute;
+    z-index: 4;
+    top: calc(20% + 0.6rem);  /* move it lower than SOFTWARE ENGINEER */
+    right: 15%;             /* align it towards the right side */
+    font-weight: 500;       /* slightly lighter than the main title */
+    font-size: 1rem;        /* smaller size than the title */
+    letter-spacing: 4px;    /* less spacing so it looks neat */
+    white-space: nowrap;
+}
+
+
+/* Subtext paragraph slightly below the image */
+.subtext{
+    grid-column:2;
+    justify-self:center;
+    margin-top:1.25rem;
+    margin-bottom:0;
+    max-width:var(--center-width);
+    text-align:center;
+    font-size:0.95rem;
+    line-height:1.4;
+    z-index:4;
+    transform:translateY(20px);
+    font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width:920px){
+    :root{--center-width:380px}
+    .hero{grid-template-columns: 1fr var(--center-width) 1fr;padding:2rem 1rem}
+    .skills{left:1rem;top:calc(100% - 10rem);transform:none}
+    .based{right:1rem;top:calc(100% - 8rem);transform:none}
+    .big-title{font-size:48px}
+}
+
+@media (max-width:520px){
+    :root{--center-width:280px}
+    .hero{grid-template-columns: 1fr var(--center-width) 1fr;padding:1.2rem}
+    .skills, .based{display:none}
+    .big-title{font-size:36px;letter-spacing:-2px}
+    .photo-wrap{width:var(--center-width)}
+}
+
+
+
+
+
+
+/* about me section, this is the css code related to the about me  */
+/* About Section */
+.about-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: black; /* full black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.overlay {
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+
+/* Title */
+.about-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    font-size: clamp(45px, 7vw, 85px);
+    color: rgba(255,255,255,1);
+    position: relative;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Wave animation for ABOUT ME */
+.wave-text span {
+    display: inline-block;
+    font-size: 6rem;
+    animation: wave 2s ease-in-out infinite;
+
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Paragraph */
+.about-intro {
+
+    top: 110%;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+}
+
+
+/* this is for the projects */ /* this is the css styling for my projects */
+/* Parallax container with black background */
+html, body {
+    font-family: "Gill Sans", sans-serif;
+
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    color: rgba(255,255,255,1);
+    position: relative;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.MainContainer {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.ContentContainer {
+    position: relative;
+    display: block;
+    background-color: white;
+    z-index: 1;
+}
+
+.Content {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 75px 0;
+}
+
+p {
+    margin: 75px 0;
+}
+
+.ParallaxContainer {
+    display: flex;
+    flex: 1 0 auto;
+    position: relative;
+    z-index: -1;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(-1px) scale(2);
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Gill Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+a, i {
+    color: rgb(0, 0, 0);
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(30% at right 70%);
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(20% at 10% 10%);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.container .card {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.container .card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.container .card:hover .content {
+    transform: translateY(-20px);
+}
+
+.container .card .content .imgBx {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.container .card .content .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .content .contentBx {
+    padding: 0 24px;
+}
+
+.container .card .content .contentBx h3 {
+    color: #000000;
+    transform: translate(0, 0); /* no shift needed */
+    font-size: 2rem;
+    line-height: 1.6;
+    max-width: 240px;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.container .card .content .contentBx span {
+    display: block;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    text-transform: initial;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.container .card .sci {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+}
+
+.container .card .sci li {
+    padding: 20px;
+
+    list-style: none;
+    margin: 0 6px;
+    transform: translateY(40px);
+    transition: 0.4s;
+    opacity: 0;
+    text-align:justify;
+    font-family: "Gill sans", sans-serif;
+}
+
+.container .card:hover .sci li {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.credits {
+    position: fixed;
+    color: rgb(0, 0, 0);
+    bottom: 32px;
+}
+
+
+
+/* this is related to the connect section in my code */
+/* Wave animation for ABOUT ME */
+.wave-text span {
+    display: inline-block;
+    font-size: 6rem;
+    animation: wave 2s ease-in-out infinite;
+
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.connectContent h1 {
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    font-size: clamp(45px, 7vw, 85px);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 2rem 0;
+    display: inline-block;
+    white-space: nowrap;
+
+}
+
+.connectContent h1 {
+    align-items: center;}
+
+
+.about-connect {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;   /* stack children vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+
+.phrase {
+    margin-top: 1rem;        /* space below CONNECT */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: black;
+    text-align: center;
+    width: 100%;             /* ensures centering works */
+    position: relative;
+}
+
+
+/* contact form this is just a way for easier readability */
+/* Basic form layout */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 1rem;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    color: black; /* or white, depending on your section */
+    width: 900px;
+}
+
+.contact-form input {
+    padding: 0.6rem 0;            /* remove horizontal padding if you want long line */
+    border: none;                 /* remove all borders */
+    border-bottom: 1px solid black; /* only bottom line */
+    font-size: 1rem;
+    outline: none;
+    width: 100%;                  /* full width */
+    background: transparent;      /* transparent background */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus {
+    border-bottom: 1px solid crimson; /* change color on focus */
+}
+
+
+
+
+/* this is the last page in the web to browse */
+
+.top-right{
+    font-weight: 600;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    font-size: clamp(40px, 4vw, 80px);
+    color: rgb(0, 0, 0);
+    text-align: left;
+    border-radius: 8px;
+    display: inline-block;
+    white-space: nowrap;
+    position: static;
+    left: 0;
+
+}
+
+/* Button base style *//* Style the submit button like nav links */
+.nav-button {
+    font-family: "Gill Sans", sans-serif;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+    z-index: 1;
+    overflow: hidden;
+    letter-spacing: 0.6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Pseudo-elements */
+.nav-button::before,
+.nav-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.nav-button::before {
+    top: 0;
+    border-top: 2px solid #262626;
+    border-bottom: 2px solid #262626;
+    transform-origin: center;
+    transform: scaleY(2);
+    opacity: 0;
+}
+
+.nav-button::after {
+    top: 2px;
+    background-color: #262626;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Hover/focus */
+.nav-button:hover,
+.nav-button:focus {
+    color: #ffffff;
+}
+
+.nav-button:hover::before,
+.nav-button:focus::before {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.nav-button:hover::after,
+.nav-button:focus::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+input:required,
+select:required,
+textarea:required {
+    color: crimson;
+
+}
+
+
+/* for the contact section the last section of my web */
+
+
+.right-sidebar {
+    top: 1rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* align everything to the right */
+}
+
+/* CONTACT TEXT */
+.top-right {
+    font-weight: 500;
+    letter-spacing: -3px;
+    line-height: 1;
+    padding: 2px;
+    font-size: clamp(40px, 5vw, 80px);
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.right-social {
+    display: flex;
+    flex-direction: rwo;
+    gap: 1rem;
+    margin-top: -10px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+
+
+.bottom-center {
+    width: 100%;
+    text-align: center;
+    height: 900;
+    bottom: 3.5rem; /* place it just above the footer */
+    left: 0;
+}
+
+/* NAV BUTTON STYLE */
+.nav-button {
+    font-family: "Gill Sans", sans-serif;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+    z-index: 1;
+    overflow: hidden;
+    letter-spacing: 0.6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-button::before,
+.nav-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.nav-button::before {
+    top: 0;
+    border-top: 2px solid #262626;
+    border-bottom: 2px solid #262626;
+    transform-origin: center;
+    transform: scaleY(2);
+    opacity: 0;
+}
+
+.nav-button::after {
+    top: 2px;
+    background-color: #262626;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+    color: #ffffff;
+}
+
+.nav-button:hover::before,
+.nav-button:focus::before {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.nav-button:hover::after,
+.nav-button:focus::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.center-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    font-size: clamp(45px, 7vw, 85px);
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+    border-radius: 8px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) { animation-delay: 0s; }
+.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+.wave-text span:nth-child(6) { animation-delay: 0.5s; }
+.wave-text span:nth-child(7) { animation-delay: 0.6s; }
+.wave-text span:nth-child(8) { animation-delay: 0.7s; }
+.wave-text span:nth-child(9) { animation-delay: 0.8s; }
+.wave-text span:nth-child(10) { animation-delay: 0.9s; }
+.wave-text span:nth-child(11) { animation-delay: 1.0s; }
+.wave-text span:nth-child(12) { animation-delay: 1.1s; }
+.wave-text span:nth-child(13) { animation-delay: 1.2s; }
+.wave-text span:nth-child(14) { animation-delay: 1.3s; }
+.wave-text span:nth-child(15) { animation-delay: 1.4s; }
+.wave-text span:nth-child(16) { animation-delay: 1.5s; }
+.wave-text span:nth-child(17) { animation-delay: 1.6s; }
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* FOOTER FLEX CONTAINER */
+.footer {
+    display: flex;
+    justify-content: space-between; /* pushes left and right apart */
+    align-items: center;
+    width: 100%;
+    padding: 0 1.5rem; /* spacing left/right */
+    bottom: 1rem;
+    left: 0;
+}
+
+/* BOTTOM LEFT TIME */
+.bottom-left {
+    font-family: "Gill sans", sans-serif, monospace;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* BOTTOM RIGHT COPYRIGHT */
+.bottom-right {
+    font-family: "Gill sans", sans-serif, monospace;
+    font-size: 14px;
+    text-align: right;
+}
+
+
+/* this is the pop up related
+/* POPUP STYLING */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* high z-index to cover the page */
+
+}
+
+.popup {
+    font-family: "Gill sans", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;       /* solid white background */
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50px 40px;       /* bigger padding */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* stronger shadow */
+    text-align: center;
+    max-width: 600px;         /* wider popup */
+    width: 90%;               /* responsive */
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+}
+
+.popup-content {
+    font-size: 30px;
+    font-weight: 600;
+}

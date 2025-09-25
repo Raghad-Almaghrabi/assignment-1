@@ -1,1 +1,242 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Raghad Almaghrabi — Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" role="banner">
+    <div class="brand">RAGHAD<br/>ALMAGHRBAI</div>
+
+    <nav class="nav" role="navigation" aria-label="Main">
+        <ul class="nav-list">
+            <li><a href="#about">[ ABOUT ME ]</a></li>
+            <li><a href="#works">[ PROJECTS ]</a></li>
+            <li><a href="#connect">[ CONNECT ]</a></li>
+        </ul>
+    </nav>
+
+    <a class="contact" href="#contact" >CONTACT ME ➚</a>
+</header>
+
+<main>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <span class="close" id="closePopup">&times;</span>
+            <div class="popup-content" id="popupContent">
+                <!-- Greeting will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+    <script src="greeting.js"></script>
+
+
+    <!-- MAIN PAGE  -->
+    <section class="hero">
+        <h1 class="big-title">SOFTWARE ENGINEER</h1>
+
+        <div class="photo-wrap" aria-hidden="true">
+            <img src="Image.png" alt="Portrait" />
+        </div>
+
+        <div class="info-block">
+            <div class="skills">/SOFTWARE DEVELOPMENT<br>/PROJECT MANAGEMENT<br>/WEB DESIGN</div>
+        </div>
+
+        <div class="based">BASED&nbsp;&nbsp;IN&nbsp;&nbsp;SAUDI ARABIA</div>
+
+        <p class="subtext">I'M A SOFTWARE ENGINEERING STUDENT AT KFUPM,<br/>PASSIONATE ABOUT WEB DEVELOPMENT<br/>AND PROJECT MANAGEMENT OF ALL SIZES</p>
+    </section>
+
+    <!-- ABOUT ME -->
+
+    <section id="about" class="about-section">
+
+        <div class="overlay">
+            <h1 class="wave-text">
+                <span>A</span><span>B</span><span>O</span><span>U</span><span>T</span>
+                <span> </span>
+                <span>M</span><span>E</span>
+            </h1>
+
+            <p class="about-intro">
+
+                Hello! I’m Raghad, a passionate software engineer with a love for creating elegant solutions to complex problems.
+                I enjoy combining creativity and logic to build projects that make a difference.
+                Exploring new technologies and continuous learning is what drives me every day.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="works">
+        <div class="MainContainer">
+            <div class="ParallaxContainer">
+                <h1>
+                    PROJECTS
+                </h1>
+            </div>
+
+            <div class="ContentContainer">
+                <div class="Content">
+
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="container">
+                <div class="card">
+                    <div class="content">
+                        <div class="imgBx">
+                            <img src="Subject2.png">
+                        </div>
+                        <div class="contentBx">
+                            <h3>ReFocus</h3>
+                            <span>Boost focus, heal brain fatigue, and sharpen attention.</span>
+                        </div>
+                    </div>
+                    <ul class="sci">
+                        <li>
+                            As a developer of Refocus, a webapp combating brain fatigue, I built interactive features enhancing attention, concentration, engagement, and overall cognitive well-being.
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="imgBx">
+                            <img src="Subject3.png">
+                        </div>
+                        <div class="contentBx">
+                            <h3>AgriScan AI</h3>
+                            <span>Detects crop diseases early for healthier yields.</span>
+                        </div>
+                    </div>
+                    <ul class="sci">
+                        <li>
+                            Worked as a data scientist and analyst developing an AI model to detect crop diseases early, handling data preprocessing, training, and evaluation for accurate, reliable predictions.
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="imgBx">
+                            <img src="Subject4.png">
+                        </div>
+                        <div class="contentBx">
+                            <h3>TedxKFUPM</h3>
+                            <span>Designing the auditorium experience for TEDx events.</span>
+                        </div>
+                    </div>
+                    <ul class="sci">
+                        <li>
+                            Part of the design team shaping the auditorium atmosphere to enhance audience engagement. Focused on layout, visuals, and ambiance to create an inspiring TEDx experience.
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <!-- CONNECTS -->
+    <section id="connect" class="about-connect">
+        <div class="connectContent">
+            <br>
+            <h1 class="wave-text">
+                <span>C</span><span>O</span><span>N</span><span>N</span><span>E</span><span>C</span><span>T</span>
+                <span> </span>
+            </h1>
+        </div>
+
+        <h3 class="phrase">
+            Great Minds Thinks Alike
+        </h3>
+
+
+
+        <!-- CONTACT FORM -->
+        <section id="connect">
+            <form class="contact-form">
+                <br>
+                <label for="name">YOUR NAME*</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">PHONE*</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="email">EMAIL ADDRESS*</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">HOW CAN I HELP YOU?</label>
+                <input type="text" id="message" name="message" required>
+
+                <br>
+
+                <button type="submit" class="nav-button">SUBMIT ➚</button>
+            </form>
+        </section>
+
+    </section>
+
+
+    <!-- Contact  -->
+
+
+
+
+    <section id="contact">
+        <!-- RIGHT SIDEBAR (contact + socials) -->
+        <div class="right-sidebar">
+            <div class="top-right">
+                <p class="contact-phone">+996 55 306 9969</p>
+                <p class="contact-email">rgd.mgh@gmail.com</p>
+            </div>
+
+            <div class="right-social">
+                <a href="https://www.instagram.com/" class="nav-button" target="_blank">Instagram ➚</a>
+                <a href="https://t.me/" class="nav-button" target="_blank">Telegram ➚</a>
+                <a href="https://www.linkedin.com/in/" class="nav-button" target="_blank">LinkedIn ➚</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Name Center -->
+    <div class="bottom-center">
+        <div class="center-name wave-text">
+            <br>
+            <span>R</span><span>A</span><span>G</span><span>H</span><span>A</span><span>D</span>
+            <span>&nbsp;</span>
+            <span>A</span><span>L</span><span>M</span><span>A</span><span>G</span><span>H</span><span>R</span><span>A</span><span>B</span><span>I</span>
+        </div>
+    </div>
+
+    <!-- Footer container -->
+    <div class="footer">
+        <!-- Bottom Left Time -->
+        <div class="bottom-left">
+            <p>DHAHRAN, SAUDI ARABIA: (GMT+3) <span id="current-time">--:--</span></p>
+        </div>
+
+        <!-- Bottom Right Copyright -->
+        <div class="bottom-right">
+            <p>© 2025 RAGHADALMAGHRABI</p>
+        </div>
+    </div>
+
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
