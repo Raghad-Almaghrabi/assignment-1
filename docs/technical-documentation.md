@@ -8,6 +8,9 @@ It includes a **time-based greeting popup** for visitors and is fully **responsi
 
 ## 2. Architecture & File Structure
 **Project structure:**
+### Suggested Structure
+
+```
 assignment-1/
 ├── README.md
 ├── index.html
@@ -22,6 +25,7 @@ assignment-1/
 │   └── technical-documentation.md
 └── .gitignore
 
+```
 
 ---
 
