@@ -84,9 +84,3 @@ assignment-1/
 - Implement contact form submissions with email functionality.
 
 
----
-
-This version:  
-- Matches your folder structure exactly.  
-- Includes **project overview, architecture, features, technologies, AI use, setup, and future improvements**.  
-- Ready to save as `docs/technical-documentation.md` and commit to your repo.  
